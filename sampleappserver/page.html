@@ -3,6 +3,21 @@
 <head>
     <meta charset="utf-8">
     <title>SampleApp Page</title>
+    <!--<script data-main="/cms/js/init.js" src="//cdnjs.cloudflare.com/ajax/libs/require.js/2.1.11/require.min.js"></script>-->
+    <!--<script data-main="/cms/js/config.js" src="/cms/js/require.js"></script>-->
+    <script type="text/javascript" src="/cms/js/require.js"></script>
+    <script type="text/javascript">
+        require.config({
+            ignore: ''
+           , context: "global"
+            , map: {
+                '*' : {
+                    'domReady': '/cms/js/domReady.js',
+                }
+            }
+        });
+        console.log('initialised global');
+    </script>
 </head>
 <body>
 <esi:include src="/cms/template/header.html"/>
@@ -16,6 +31,29 @@
             </td>
             <td>
                 <section id="sampleapp-content">
+                    <script type="text/javascript">
+                        var globalrequire = require.s.contexts['global'];
+                        var globalconfig = globalrequire.config;
+                        globalconfig.context = "sampleapp";
+                        globalconfig.baseUrl = "/sampleapp/js";
+                        var myrequire = require.config(globalconfig);
+/*
+                        var myrequire = require.config({
+                            noop: ''
+                            , context: "sampleapp"
+                            , baseUrl: "/sampleapp/js/"
+                            , map: {
+                                '*' : {
+                                    'domReady': '/cms/js/domReady.js',
+                                    'text': '/cms/js/text.js',
+                                }
+                            }
+                        });
+*/
+                        myrequire(["myconfig"], function() {
+                            console.log("ok, mypage loaded");
+                        });
+                    </script>
                     <div>from sampleapp page with logo</div><img src="/sampleapp/img/esi_logo.gif" /><div>logo text</div>
                 </section>
             </td>

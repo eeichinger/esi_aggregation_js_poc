@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en" xmlns:esi="http://www.edge-delivery.org/esi/1.0" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8">
+    <title>SampleApp Page</title>
+</head>
+<body>
+<esi:include src="/cms/template/header.html"/>
+<hr/>
+<table border="1" width="100%">
+    <thead><tr><th width="100px">Sidebar</th><th>Content</th></tr></thead>
+    <tbody>
+        <tr>
+            <td>
+                <esi:include src="/cms/template/sidebar.html"/>
+            </td>
+            <td>
+                <section id="sampleapp-content">
+                    <div>from sampleapp page with logo</div><img src="/sampleapp/img/esi_logo.gif" /><div>logo text</div>
+                </section>
+            </td>
+        </tr>
+    </tbody>
+</table>
+<hr/>
+<esi:include src="/cms/template/footer.html"/>
+</body>
+</html>

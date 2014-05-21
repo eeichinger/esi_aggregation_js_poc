@@ -1,9 +1,14 @@
 /*globals: require, define*/
-define(['require', 'domReady', './myscript'], function(require, domReady, myscript) {
+define(function(require, exports, module) {
+    var domReady = require('domReady');
+    var shared = require('shared');
+    var myscript = require('./myscript');
+
+    shared.inc();
 
     domReady(function() {
-        myscript.output("yea, got myscript");
+        myscript.output("yea, got myscript - DOM ready");
     });
 
-    console.log('initialised sampleapp');
+    console.log('initialised sampleapp, shared.val is ' + shared.val());
 });

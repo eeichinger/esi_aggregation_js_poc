@@ -1,1 +1,19 @@
-<section>some sidebar content</section>
+<section id="sidebar">
+    <script type="text/javascript">
+        var myrequire = require.config({
+            context: "sidebar"
+            , baseUrl: "/cms/js/sidebar/"
+            , map: {
+                '*' : {
+                    'domReady': '/cms/js/import.js!global:domReady',
+                    'shared': '/cms/js/import.js!global:shared'
+                }
+            }
+        });
+        myrequire(["sidebarconfig"], function(sidebarconfig) {
+            console.log("ok, sidebar complete");
+        });
+    </script>
+
+    <p>some sidebar content</p>
+</section>

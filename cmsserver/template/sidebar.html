@@ -1,12 +1,15 @@
 <section id="sidebar">
     <script type="text/javascript">
         var myrequire = require.config({
-            context: "sidebar"
-            , baseUrl: "/cms/js/sidebar/"
-            , map: {
+            context: "sidebar",
+            baseUrl: "/cms/js/sidebar/",
+            paths: {
+                'import' : '/cms/js/import'
+            },
+            map: {
                 '*' : {
-                    'domReady': '/cms/js/import.js!global:domReady',
-                    'shared': '/cms/js/import.js!global:shared'
+                    'domReady': 'import!domReady',
+                    'shared': 'import!shared'
                 }
             }
         });

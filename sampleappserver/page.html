@@ -7,7 +7,6 @@
     <script>
         // configure default context baseUrl
         require.config({
-            context: 'global',
             baseUrl: '/cms/js/'
         });
     </script>
@@ -28,10 +27,13 @@
                     var myrequire = require.config({
                         context: 'sampleapp',
                         baseUrl: '/sampleapp/js/',
+                        paths: {
+                            'import' : '/cms/js/import'
+                        },
                         map: {
                             '*' : {
-                                'domReady' : '/cms/js/import.js!global:domReady',
-                                'shared' : '/cms/js/import.js!global:shared'
+                                'domReady' : 'import!domReady',
+                                'shared' : 'import!shared'
                             }
                         },
                     });

@@ -24,27 +24,7 @@
             <td>
                 <section id="sampleapp-content">
                     <script type="text/javascript">
-                    require(['external'], function(external) {
-
-                        define('external', function() {
-                            return external;
-                        });
-
-                        var sampleappRequire = require.config({
-                            context: 'sampleapp',
-                            baseUrl: '/sampleapp/js/',
-                            map: {
-                                '*' : {
-                                    'domReady' : 'external!domReady',
-                                    'shared' : 'external!shared'
-                                }
-                            }
-                        });
-
-                        sampleappRequire(["myconfig"], function() {
-                            console.log("ok, mypage loaded ");
-                        });
-                    });
+                        require(['/sampleapp/js/sampleappconfig.js']);
                     </script>
                     <div>from sampleapp page with logo</div><img src="/sampleapp/img/esi_logo.gif" /><div>logo text</div>
                 </section>

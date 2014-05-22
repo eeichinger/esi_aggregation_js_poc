@@ -4,12 +4,12 @@
             context: "sidebar",
             baseUrl: "/cms/js/sidebar/",
             paths: {
-                'import' : '/cms/js/import'
+                'external' : '/cms/js/external'
             },
             map: {
                 '*' : {
-                    'domReady': 'import!domReady',
-                    'shared': 'import!shared'
+                    'domReady': 'external!domReady',
+                    'shared': 'external!shared'
                 }
             }
         }, ["sidebarconfig"], function(sidebarconfig) {

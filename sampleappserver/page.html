@@ -24,21 +24,24 @@
             <td>
                 <section id="sampleapp-content">
                     <script type="text/javascript">
-                    var myrequire = require.config({
-                        context: 'sampleapp',
-                        baseUrl: '/sampleapp/js/',
-                        paths: {
-                            'import' : '/cms/js/import'
-                        },
-                        map: {
-                            '*' : {
-                                'domReady' : 'import!domReady',
-                                'shared' : 'import!shared'
+                    require(['external'], function(external) {
+
+                        define('external', function() {
+                            return external;
+                        });
+
+                        require({
+                            context: 'sampleapp',
+                            baseUrl: '/sampleapp/js/',
+                            map: {
+                                '*' : {
+                                    'domReady' : 'external!domReady',
+                                    'shared' : 'external!shared'
+                                }
                             }
-                        },
-                    });
-                    myrequire(["myconfig"], function() {
-                        console.log("ok, mypage loaded ");
+                        }, ["myconfig"], function() {
+                            console.log("ok, mypage loaded ");
+                        });
                     });
                     </script>
                     <div>from sampleapp page with logo</div><img src="/sampleapp/img/esi_logo.gif" /><div>logo text</div>

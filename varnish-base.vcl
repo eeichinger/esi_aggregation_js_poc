@@ -27,6 +27,6 @@ sub vcl_recv {
 }
 
 sub vcl_backend_response {
-    set beresp.ttl = 0s;
+//    set beresp.ttl = 0s;
     set beresp.do_esi=true;
 }

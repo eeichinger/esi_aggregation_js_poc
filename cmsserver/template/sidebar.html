@@ -1,20 +1,6 @@
 <section id="sidebar">
     <script type="text/javascript">
-        require({
-            context: "sidebar",
-            baseUrl: "/cms/js/sidebar/",
-            paths: {
-                'external' : '/cms/js/lib/external'
-            },
-            map: {
-                '*' : {
-                    'domReady': 'external!domReady',
-                    'shared': 'external!shared'
-                }
-            }
-        }, ["sidebarconfig"], function(sidebarconfig) {
-            console.log("ok, sidebarconfig load complete");
-        });
+        require(['/cms/js/sidebar/sidebar-config.js']);
     </script>
 
     <p>some sidebar content</p>

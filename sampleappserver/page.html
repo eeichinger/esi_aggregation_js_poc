@@ -30,7 +30,7 @@
                             return external;
                         });
 
-                        require({
+                        var sampleappRequire = require.config({
                             context: 'sampleapp',
                             baseUrl: '/sampleapp/js/',
                             map: {
@@ -39,7 +39,9 @@
                                     'shared' : 'external!shared'
                                 }
                             }
-                        }, ["myconfig"], function() {
+                        });
+
+                        sampleappRequire(["myconfig"], function() {
                             console.log("ok, mypage loaded ");
                         });
                     });

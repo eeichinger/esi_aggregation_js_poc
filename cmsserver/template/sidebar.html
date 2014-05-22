@@ -1,6 +1,6 @@
 <section id="sidebar">
     <script type="text/javascript">
-        var myrequire = require.config({
+        require({
             context: "sidebar",
             baseUrl: "/cms/js/sidebar/",
             paths: {
@@ -12,9 +12,8 @@
                     'shared': 'import!shared'
                 }
             }
-        });
-        myrequire(["sidebarconfig"], function(sidebarconfig) {
-            console.log("ok, sidebar complete");
+        }, ["sidebarconfig"], function(sidebarconfig) {
+            console.log("ok, sidebarconfig load complete");
         });
     </script>
 

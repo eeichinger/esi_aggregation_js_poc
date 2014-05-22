@@ -13,7 +13,15 @@ define(['external'], function(external) {
                 'domReady' : 'external!domReady',
                 'shared' : 'external!shared'
             }
-        }
+        },
+        shim: {
+            "underscore": {
+                exports: "_",
+                init: function() {
+                    return this._.noConflict();
+                }
+            },
+        },
     }, ["./myscript"], function() {
         console.log("ok, mypage loaded ");
     });

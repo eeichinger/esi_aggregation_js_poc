@@ -2,14 +2,19 @@
 define(function(require) {
     'use strict';
     var domReady = require('domReady');
-    var counter = require('counter');
-    var mylogger = require('./mylogger');
-
-    counter.inc();
+    var $ = require('jquery');
+    var events = require('events');
+    var log = require('./mylogger');
 
     domReady(function() {
-        mylogger.info("yea, got myscript - DOM ready and counter.val is " + counter.val());
+        log.info('sending query:lang request');
+        events.trigger("query:lang");
+        events.on("change:lang", function(evt) {
+            log.info('received change:lang notification');
+            $('#sampleapp-content').find('#selectedLanguage').text(evt.language);
+        });
+        log.info("sampleapp initialised DOM");
     });
 
-    console.log('initialise sampleapp complete');
+    log.info('sampleapp initialised');
 });

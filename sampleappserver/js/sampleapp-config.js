@@ -18,12 +18,13 @@ define(['external'], function (external) {
         map: {
             '*': {
                 'domReady': 'external!domReady',
+                'jquery': 'external!jquery', // can potentially import our own jquery version!
+                'events': 'external!events',
                 'counter': 'external!counter',
-                '_': 'external!_',
-                'jquery': 'external!jquery',
+                'underscore': 'external!underscore',
             }
         },
     }, ["sampleapp-main"], function () {
-        console.log("ok, mypage loaded ");
+        console.log("sampleapp configured");
     });
 });

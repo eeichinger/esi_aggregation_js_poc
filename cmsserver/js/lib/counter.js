@@ -1,5 +1,8 @@
-/*global define: false */
-define(function(require, exports, module) {
+/**
+ * A simple 'global' counter used to demo shared access to modules across requirejs contexts
+ */
+/*global define*/
+define(function(require) {
     'use strict';
 
     var value = 0;

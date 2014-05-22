@@ -1,13 +1,14 @@
-/*globals: require, define*/
+/*global require, define*/
 define(function(require) {
+    'use strict';
     var domReady = require('domReady');
-    var shared = require('shared');
+    var counter = require('counter');
     var mylogger = require('./mylogger');
 
-    shared.inc();
+    counter.inc();
 
     domReady(function() {
-        mylogger.info("yea, got myscript - DOM ready and shared.val is " + shared.val());
+        mylogger.info("yea, got myscript - DOM ready and counter.val is " + counter.val());
     });
 
     console.log('initialise sampleapp complete');

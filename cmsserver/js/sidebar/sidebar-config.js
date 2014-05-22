@@ -1,7 +1,13 @@
+/**
+ * At a minimum we need to obtain a reference to the "external" plugin to pull 'global' libs into our private child context.
+ * We don't want to load all required libs now, but be able to if we need to.
+ */
+/*global define,require*/
 define(['external'], function (external) {
+    'use strict';
 
-    // put on the global 'define' queue, so the already loaded 'external' plugin gets imported into the new 'sidebar' child context below
-    define("external", function () {
+    // put on the global 'define' queue, so the already loaded 'external' plugin gets imported into the new 'sampleapp' child context below
+    define('external', function () {
         return external;
     });
 
@@ -11,9 +17,7 @@ define(['external'], function (external) {
         map: {
             '*': {
                 'domReady': 'external!domReady',
-                'shared': 'external!shared',
-                '_': 'external!_',
-                'jquery': 'external!jquery',
+                'counter': 'external!counter',
             }
         },
     }, ["sidebar-main"], function () {

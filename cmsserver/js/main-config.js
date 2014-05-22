@@ -5,6 +5,8 @@
  * sets the base url and configures all "global" libs as noConflict() versions (i.e. removes $ and _ from the global namespace)
  * to avoid conflicts
  */
+/*global require*/
+'use strict';
 require.config({
     baseUrl: '/cms/js/lib/',
     map: {

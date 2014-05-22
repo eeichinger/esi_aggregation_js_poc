@@ -16,6 +16,7 @@ define(['external'], function (external) {
         baseUrl: "/cms/js/sidebar/",
         map: {
             '*': {
+                'log4js': 'external!log4javascript',
                 'domReady': 'external!domReady',
                 'jquery': 'external!jquery',
                 'events': 'external!events',

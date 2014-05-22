@@ -8,24 +8,25 @@ define(function (require) {
     var domReady = require('domReady');
     var $ = require('jquery');
     var events = require('events');
+    var log4js = require('log4js');
 
+    var log = log4js.getLogger('sidebar');
     var self = this;
 
-/*
     events.on("query:lang", function() {
-        console.log('received query:lang, sending response');
+        log.info('received query:lang, sending response');
         events.trigger("change:lang", { sender: self, language: "en"});
     });
-*/
+
     domReady(function (doc) {
         $('.langlink').click(function() {
             var langlinkEl = $(this);
             var selectedLanguage = langlinkEl.attr('data-text');
-            console.log('clicked langlink, selecting lang ' + selectedLanguage + " and notifying listeners");
+            log.info('clicked langlink, selecting lang ' + selectedLanguage + " and notifying listeners");
             events.trigger("change:lang", { sender: self, language: selectedLanguage });
         });
-        console.log("sidebar initialised DOM");
+        log.info("sidebar initialised DOM");
     });
 
-    console.log("sidebar initialised");
+    log.info("sidebar initialised");
 });

@@ -17,10 +17,10 @@ define(['external'], function (external) {
         baseUrl: '/sampleapp/js/',
         map: {
             '*': {
+                'log4js': 'external!log4javascript',
                 'domReady': 'external!domReady',
                 'jquery': 'external!jquery', // can potentially import our own jquery version!
                 'events': 'external!events',
-                'counter': 'external!counter',
                 'underscore': 'external!underscore',
             }
         },

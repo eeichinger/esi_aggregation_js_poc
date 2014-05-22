@@ -11,11 +11,19 @@ require.config({
     baseUrl: '/cms/js/lib/',
     map: {
         "*": {
-            "jquery": "jquery-private"
+            "jquery": "jquery-private",
         },
         "jquery-private": { "jquery": "jquery" }
     },
     shim: {
+        "log4javascript": {
+//            exports: 'log4javascript',
+            init: function() {
+                log4javascript.getRootLogger().addAppender(new log4javascript.BrowserConsoleAppender());
+                log4javascript.setEnabled(true);
+                return log4javascript;
+            }
+        },
         "underscore": {
 //                    exports: "_",
             init: function() {

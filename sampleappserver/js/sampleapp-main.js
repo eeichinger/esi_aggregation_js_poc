@@ -4,13 +4,25 @@ define(function(require) {
     var domReady = require('domReady');
     var $ = require('jquery');
     var events = require('events');
-    var log = require('./mylogger');
+    var log4js = require('log4js');
 
-    domReady(function() {
+    var log = log4js.getLogger("sampleapp");
+
+    var lang_received = false;
+
+    function queryLanguage() {
+        if (lang_received) return;
+
         log.info('sending query:lang request');
         events.trigger("query:lang");
+        setTimeout(queryLanguage, 10);
+    }
+    queryLanguage();
+
+    domReady(function() {
         events.on("change:lang", function(evt) {
             log.info('received change:lang notification');
+            lang_received = true;
             $('#sampleapp-content').find('#selectedLanguage').text(evt.language);
         });
         log.info("sampleapp initialised DOM");

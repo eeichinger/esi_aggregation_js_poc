@@ -1,0 +1,24 @@
+/'
+This is a PlantUML script (http://plantuml.sourceforge.net/)
+'/
+@startuml sample.png
+' sequence diagram example
+Alice -> Bob: Authentication Request
+Bob --> Alice: Authentication Response
+
+Alice -> Bob: Another authentication Request
+Alice <-- Bob: another authentication Response
+@enduml
+
+@startuml context.png
+' use case diagram example
+(Webpage) as webpage
+:Frontend/Design Team: as designteam
+:Branch Finder Widget Team: as widgetteam
+:Application Team: as appteam
+
+designteam --> (webpage) : contributes to
+widgetteam --> (webpage) : contributes to
+appteam --> (webpage) : contributes to
+
+@enduml

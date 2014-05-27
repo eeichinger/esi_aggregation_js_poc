@@ -6,7 +6,8 @@
 define(['external'], function (external) {
     'use strict';
 
-    // put on the global 'define' queue, so the already loaded 'external' plugin gets imported into the new 'sampleapp' child context below
+    // put on the global 'define' queue, so the already loaded 'external' plugin gets imported into
+    // the new 'sampleapp' child context below
     define('external', function () {
         return external;
     });

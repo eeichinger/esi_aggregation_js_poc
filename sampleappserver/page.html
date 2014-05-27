@@ -4,17 +4,22 @@
     <meta charset="utf-8">
     <title>SampleApp Page</title>
     <script type="text/javascript" src="/cms/js/lib/require.js"></script>
+    <!-- sync configure global/default requirejs context -->
     <script type="text/javascript" src="/cms/js/main-config.js"></script>
 </head>
 <body>
+
 <esi:include src="/cms/template/header.html"/>
+
 <hr/>
 <table border="1" width="100%">
     <thead><tr><th width="100px">Sidebar</th><th>Content</th></tr></thead>
     <tbody>
         <tr style="vertical-align: top">
             <td>
-                <esi:include src="/cms/template/sidebar.html"/>
+
+                <esi:include src="/cms/template/sidebar.html" />
+
             </td>
             <td style="text-align: center">
                 <section id="sampleapp-content">
@@ -30,6 +35,8 @@
     </tbody>
 </table>
 <hr/>
+
 <esi:include src="/cms/template/footer.html"/>
+
 </body>
 </html>

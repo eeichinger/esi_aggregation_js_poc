@@ -1,6 +1,6 @@
 /**
- * At a minimum we need to obtain a reference to the "external" plugin to pull 'global' libs into our private child context.
- * We don't want to load all required libs now, but be able to if we need to.
+ * At a minimum we need to obtain a reference to the "external" plugin to pull 'global' libs into our
+ * private child context. We don't want to load all required libs now, but be able to if we need to.
  */
 /*global define,require*/
 define(['external'], function (external) {

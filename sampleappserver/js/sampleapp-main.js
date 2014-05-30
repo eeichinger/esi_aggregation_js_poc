@@ -17,7 +17,6 @@ define(function(require) {
         events.trigger("query:lang");
         setTimeout(queryLanguage, 10);
     }
-    queryLanguage();
 
     domReady(function() {
         events.on("change:lang", function(evt) {
@@ -25,6 +24,7 @@ define(function(require) {
             lang_received = true;
             $('#sampleapp-content').find('#selectedLanguage').text(evt.language);
         });
+        queryLanguage();
         log.info("sampleapp initialised DOM");
     });
 
